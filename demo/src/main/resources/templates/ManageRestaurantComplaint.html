@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .verticalUl {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 16%;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+        }
+
+        .verticalLi .verticalTabLinks {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .verticalLi>a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        /* TO highlight the current tab in Vertical Navigation Bar and add active in the element class*/
+        /* .verticalLi a.active {
+            background-color: #04AA6D;
+            color: white;
+        } */
+
+        .verticalLi a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        .tableMarginTop {
+            margin-top: 100px;
+        }
+
+        .textLink{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" >FOOD ORDER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-row-reverse" id="navbarSupportedContent">
+
+                <span class="px-4">
+                    <!-- User Account Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                         class="bi bi-person-square" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path
+                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
+                    </svg>
+                </span>
+        </div>
+    </div>
+</nav>
+
+<div class="row">
+    <div class="col-2 p-0">
+        <!-- Vertical Nav Bar -->
+        <ul class="verticalUl">
+            <li class="verticalLi my-4"><a>Dashboard</a></li>
+
+            <li class="verticalLi my-4">
+                <div class="d-flex justify-content-between mx-4">
+                    <a class="textLink" th:href="@{/ManageProduct}">Manage Product</a>
+                    <a class="textLink" th:href="@{/ManageProduct/addnewProduct}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg></a>
+                </div>
+            </li>
+
+            <li class="verticalLi my-4">
+                <div class="d-flex justify-content-between mx-4">
+                    <a class="textLink" th:href="@{/ManageOffers}">Manage Offers</a>
+
+                    <a class="textLink" th:href="@{/ManageOffers/addnewOffers}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                    </svg></a>
+                </div>
+            </li>
+
+
+
+            <li class="verticalLi my-4">
+                <div class="d-flex justify-content-between mx-4">
+                    <a class="textLink"  th:href="@{/ManageRestaurantComplaints}">Manage Complaint</a>
+
+                </div>
+            </li>
+
+            <!--            <li class="verticalLi my-4">-->
+            <!--                <div class="d-flex justify-content-between mx-4">-->
+            <!--                    <a class="textLink" href="#">Manage Restarant</a>-->
+            <!--                    <a class="textLink" href="home.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">-->
+            <!--                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>-->
+            <!--                    </svg></a>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+            <!--            <li class="verticalLi my-4">-->
+            <!--                <div class="d-flex justify-content-between mx-4">-->
+            <!--                    <a class="textLink" href="#">Manage Offers</a>-->
+            <!--                    <a class="textLink" href="home.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">-->
+            <!--                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>-->
+            <!--                    </svg></a>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+            <!--            <li class="verticalLi my-4">-->
+            <!--                <div class="d-flex justify-content-between mx-4">-->
+            <!--                    <a class="textLink" href="#">Complaint</a>-->
+            <!--                    <a class="textLink" href="home.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">-->
+            <!--                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>-->
+            <!--                    </svg></a>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+            <li class="verticalLi my-4">
+                <div class="d-flex justify-content-between mx-4">
+                    <a class="textLink"th:href="@{/admin/Logout}">Logout</a>
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="col-10 p-4 px-4">
+
+        <h1> Complaints Details</h1>
+
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+            <button type="button" class="btn btn-danger">Copy</button>&nbsp;
+            <button type="button" class="btn btn-warning">CSV</button>&nbsp;
+            <button type="button" class="btn btn-success">Excel</button>&nbsp;
+            <button type="button" class="btn btn-primary">PDF</button>&nbsp;
+            <button type="button" class="btn btn-dark">Print</button>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-primary tableMarginTop" id="example">
+                <thead>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Discription</th>
+                    <th scope="col">ComplaintDate</th>
+                    <th scope="col">Reply</th>
+                    <th scope="col">ReplyDate</th>
+                    <th scope="col">Attachment</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each= "complaint : ${listsComplaint}"    class="">
+                    <td scope="row" th:text="${complaint.No}"></td>
+                    <td scope="row" th:text="${complaint.Subject}"></td>
+                    <td scope="row" th:text="${complaint.Discription}"></td>
+                    <td scope="row" th:text="${complaint.ComplaintDate}"></td>
+                    <td scope="row" th:text="${complaint.Reply}"></td>
+                    <td scope="row" th:text="${complaint.ReplyDate}"></td>
+                    <td scope="row"> <a href="" th:text="${complaint.Attachment}"><i class="fa-solid fa-paperclip"></i></a> </td>
+                    <td scope="row" th:text="${complaint.Status}"></td>
+
+                    <td><a th:href="@{/ManageRestaurantComplaints/edit/{No}(No=${complaint.No})}"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp;&nbsp;</td>
+                    <!--                    <td>R1C5</td>-->
+                </tr>
+                <!--                <tr class="">-->
+                <!--                    <td scope="row">Item</td>-->
+                <!--                    <td>Item</td>-->
+                <!--                    <td>Item</td>-->
+                <!--                    <td><a href="#"><i class="fa-solid fa-pen-to-square"></i></a> &nbsp;&nbsp;<span><a href="#"><i class="fa-solid fa-trash"></i></a> </span></td>-->
+                <!--&lt;!&ndash;                    <td>Item</td>&ndash;&gt;-->
+                <!--                </tr>-->
+                </tbody>
+            </table>
+
+
+            <div th:if="${totalPages > 1 }">
+                <div class="row col-sm-10">
+
+                    <div class=" col-sm-2">
+                        Total Rows:[[${totalItems}]]
+                    </div>
+
+                    <div class=" col-sm-1" >
+                        <span th:each="i: ${#numbers.sequence(1,totalPages)}">
+                            <a  th:if="${currentPage != i}" th:href="@{'/ManageRestaurantComplaints/page/' + ${i}}" > [[${i}]]</a>
+                            <span th:unless="${currentPage != i}" > [[${i}]]</span> &nbsp;
+                        </span >
+                    </div>
+
+                    <div class=" col-sm-1" >
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/ManageRestaurantComplaints/page/' + ${currentPage + 1}}">Next</a>
+
+                        <span th:unless  ="${currentPage < totalPages}" >Next</span>
+
+                    </div>
+
+                    <div class=" col-sm-1" >
+                        <a th:if="${currentPage < totalPages}" th:href="@{'/ManageRestaurantComplaints/page/' + ${totalPages}}">Last</a>
+
+                        <span th:unless  ="${currentPage < totalPages}" >Last</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js
+"></script>
+
+
+
+<script>
+
+    new DataTable('#example', {
+    layout: {
+        topStart: {
+            buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+        }
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Login</title>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center mb-4">LOGIN HERE </h2>
+            <form action="#" th:action="@{/Restaurantlogin}" th:object="${user}" method="POST">
+
+                <div class="form-group">
+                    <label for="restaurantName">Restaurant Name:</label>
+                    <input type="text" class="form-control"  th:field="*{restaurantName}" id="restaurantName"  required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" th:field="*{email}" id="email" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <p th:if="${param.error}">Invalid username or password</p>
+            <br>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
